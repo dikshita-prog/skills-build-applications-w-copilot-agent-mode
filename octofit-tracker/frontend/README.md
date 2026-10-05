@@ -30,3 +30,15 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+## OctoFit API setup
+
+Run the frontend with `npm run dev --prefix octofit-tracker/frontend`. When `VITE_CODESPACE_NAME` is unset, the API URL safely falls back to `http://localhost:8000`.
+
+When running in Codespaces, `VITE_CODESPACE_NAME` must be defined so the browser can reach the forwarded API port. Add this to `octofit-tracker/frontend/.env.local`, using the Codespace name only (not a URL):
+
+```dotenv
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+Vite builds the API URL as `https://<name>-8000.app.github.dev`. Restart the frontend dev server after changing the environment file.
